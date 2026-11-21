@@ -10,6 +10,7 @@ HTML e CSS estáticos, sem etapa de build, prontos para o GitHub Pages.
 | `index.html` | Página principal: perfis, recursos, modalidades, planos, perguntas e academias piloto |
 | `privacidade.html` | Política de privacidade (versão preliminar) |
 | `termos.html` | Termos de uso (versão preliminar) |
+| `instalar.html` | Passo a passo de instalação no Android (APK do site) e no iPhone (app web na tela de início) |
 | `estilo.css` | Identidade visual: carvão, hinomaru, dourado e kimono; Bebas Neue e Inter |
 | `logo.svg` | Marca e favicon |
 
