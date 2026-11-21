@@ -14,7 +14,7 @@ kimepro-app. O `logo.svg` sai de `apps/mobile/assets/marca/logo.svg` do app.
 
 | Arquivo | Conteúdo |
 | --- | --- |
-| `index.html` | Página principal: perfis, recursos, modalidades, planos, perguntas e academias piloto |
+| `index.html` | Página principal: perfis, recursos, modalidades, planos e perguntas |
 | `privacidade.html` | Política de privacidade (versão preliminar) |
 | `termos.html` | Termos de uso (versão preliminar) |
 | `instalar.html` | Passo a passo de instalação no Android (APK do site) e no iPhone (app web na tela de início) |
@@ -24,14 +24,12 @@ kimepro-app. O `logo.svg` sai de `apps/mobile/assets/marca/logo.svg` do app.
 | `logo.svg` | Marca e favicon |
 | `versao.json` | Versão publicada do app: liga os botões de `instalar.html` e avisa o app Android de versão nova |
 | `publicacao.js` | Lê o `versao.json` e libera os botões de instalação |
-| `piloto.js` / `config.js` | Formulário das academias piloto, enviado ao Supabase (`config.js` vazio = "em breve") |
 | `app/` | App web do iPhone, publicado pelo workflow *Publicar app web* do kimepro-app |
 
 ## Antes do lançamento
 
 - [ ] Revisar a política de privacidade e os termos com um advogado e incluir a empresa responsável, o CNPJ e o canal do encarregado de dados.
 - [ ] Publicar os preços dos planos.
-- [ ] Abrir o formulário de inscrição das academias piloto: preencher `config.js` com a URL e a chave publicável do Supabase.
 - [ ] Publicar a primeira versão: anexar `kimepro.apk` a uma Release do kimepro-site e trocar `"publicado"` para `true` no `versao.json`.
 - [ ] Trocar as telas desenhadas em CSS por capturas reais do app.
 - [ ] Apontar o domínio próprio, quando registrado.
