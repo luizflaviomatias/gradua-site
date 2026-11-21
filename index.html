@@ -32,7 +32,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
   <script type="module" src="idioma.js"></script>
-  <script type="module" src="piloto.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo" data-i18n="comum.pular">Pular para o conteúdo</a>
@@ -49,7 +48,7 @@
       </nav>
       <div class="topo__acoes">
         <div class="seletor-de-idioma" data-seletor-de-idioma></div>
-        <a class="botao" href="#piloto" data-i18n="inicio.piloto.curto">Quero ser piloto</a>
+        <a class="botao" href="instalar.html" data-i18n="inicio.instalar">Instalar o app</a>
       </div>
     </div>
   </header>
@@ -62,7 +61,7 @@
           <h1 data-i18n="inicio.heroi.titulo">Administre.<br>Ensine.<br><span>Evolua.</span></h1>
           <p class="subtitulo" data-i18n="inicio.heroi.subtitulo">Da matrícula à graduação: agenda, check-in, evolução do aluno, cobrança por Pix e repasses aos professores num só app, no Android e no iPhone.</p>
           <div class="acoes">
-            <a class="botao" href="#piloto" data-i18n="inicio.piloto.longo">Quero ser academia piloto</a>
+            <a class="botao" href="instalar.html" data-i18n="inicio.instalar">Instalar o app</a>
             <a class="botao botao-secundario" href="#perfis" data-i18n="inicio.heroi.comoFunciona">Ver como funciona</a>
           </div>
           <div class="barra-graduacao" aria-hidden="true">
@@ -260,45 +259,18 @@
           </details>
           <details>
             <summary data-i18n="inicio.pergunta.quando">Quando o app fica disponível?</summary>
-            <p data-i18n="inicio.pergunta.quando.resposta">O KimePro está em desenvolvimento. Antes da abertura geral, ele roda com algumas academias piloto.</p>
+            <p data-i18n="inicio.pergunta.quando.resposta">O KimePro está em desenvolvimento. Quando for lançado, o app para Android e o endereço para iPhone ficam na página Como instalar.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section class="secao chamada" id="piloto">
+    <section class="secao chamada" id="comecar">
       <div class="conteiner">
-        <span class="rotulo" data-i18n="inicio.chamada.rotulo">Academias piloto</span>
+        <span class="rotulo" data-i18n="inicio.chamada.rotulo">Lançamento</span>
         <h2 data-i18n="inicio.chamada.titulo">Da matrícula à graduação</h2>
-        <p class="subtitulo" data-piloto-em-breve data-i18n="inicio.chamada.texto">Estamos escolhendo as primeiras academias para usar o KimePro antes do lançamento. As inscrições abrem em breve, por esta página.</p>
-        <p class="subtitulo" data-piloto-aberto hidden data-i18n="piloto.texto">Estamos escolhendo as primeiras academias para usar o KimePro antes do lançamento. Conte um pouco sobre a sua e entramos em contato.</p>
-
-        <form class="formulario" data-formulario-piloto data-piloto-aberto hidden>
-          <label><span data-i18n="piloto.academia">Nome da academia</span>
-            <input name="academia" required minlength="2" maxlength="120" autocomplete="organization"></label>
-          <label><span data-i18n="piloto.cidade">Cidade</span>
-            <input name="cidade" required minlength="2" maxlength="80" autocomplete="address-level2"></label>
-          <label><span data-i18n="piloto.modalidades">Modalidades</span>
-            <input name="modalidades" maxlength="200" placeholder="Jiu-jitsu, muay thai…" data-i18n-attr="placeholder:piloto.modalidades.exemplo"></label>
-          <label><span data-i18n="piloto.alunos">Quantos alunos, mais ou menos</span>
-            <input name="alunos" type="number" min="0" max="100000" inputmode="numeric"></label>
-          <label><span data-i18n="piloto.responsavel">Seu nome</span>
-            <input name="responsavel" required minlength="2" maxlength="120" autocomplete="name"></label>
-          <label><span data-i18n="piloto.contato">E-mail ou WhatsApp</span>
-            <input name="contato" required minlength="5" maxlength="120" autocomplete="email"></label>
-          <label class="formulario__robo" aria-hidden="true">Site <input name="site" tabindex="-1" autocomplete="off"></label>
-          <label class="formulario__aceite"><input type="checkbox" name="consentimento" value="sim" required>
-            <span data-i18n="piloto.consentimento">Concordo que o KimePro use estes dados só para falar comigo sobre o piloto, como explica a <a href="privacidade.html">política de privacidade</a>.</span></label>
-          <button class="botao" type="submit" data-i18n="piloto.enviar">Quero ser academia piloto</button>
-          <div aria-live="polite">
-            <p class="formulario__situacao" data-situacao="enviando" hidden data-i18n="piloto.enviando">Enviando…</p>
-            <p class="formulario__situacao formulario__situacao--ok" data-situacao="enviada" hidden data-i18n="piloto.enviada">Inscrição recebida. Obrigado! Entramos em contato em breve.</p>
-            <p class="formulario__situacao" data-situacao="contato-invalido" hidden data-i18n="piloto.erro.contato">Confira o contato: escreva um e-mail ou um WhatsApp com DDD.</p>
-            <p class="formulario__situacao" data-situacao="consentimento-necessario" hidden data-i18n="piloto.erro.consentimento">Para enviar, marque que concorda com o uso dos dados.</p>
-            <p class="formulario__situacao" data-situacao="muitas-inscricoes" hidden data-i18n="piloto.erro.muitas">Muitas inscrições agora. Tente de novo daqui a alguns minutos.</p>
-            <p class="formulario__situacao" data-situacao="geral" hidden data-i18n="piloto.erro.geral">Não deu para enviar. Confira os campos e tente de novo.</p>
-          </div>
-        </form>
+        <p class="subtitulo" data-i18n="inicio.chamada.texto">Agenda, check-in, evolução do aluno e financeiro da academia num só app. Veja como instalar no Android e no iPhone.</p>
+        <a class="botao" href="instalar.html" data-i18n="inicio.instalar">Instalar o app</a>
       </div>
     </section>
   </main>

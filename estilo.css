@@ -140,6 +140,7 @@ details p { color: var(--texto-2); margin-top: 10px; }
 
 .chamada { text-align: center; }
 .chamada .subtitulo { margin: 0 auto; }
+.chamada .botao { margin-top: 24px; }
 
 .rodape { background: var(--carvao); color: var(--texto-claro-2); padding: 32px 0; font-size: 15px; }
 .rodape .conteiner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
@@ -163,17 +164,6 @@ details p { color: var(--texto-2); margin-top: 10px; }
 .passos li::before { content: counter(passo); position: absolute; left: 0; top: -2px; width: 34px; height: 34px; border-radius: 50%; background: var(--hinomaru); color: var(--kimono); font-family: var(--titulo); font-size: 22px; display: grid; place-items: center; }
 .passos li strong { display: block; }
 [hidden] { display: none !important; }
-.formulario { display: grid; gap: 14px; max-width: 560px; margin: 28px auto 0; text-align: left; }
-.formulario label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
-.formulario input:not([type="checkbox"]) { font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid var(--borda-clara); border-radius: 10px; background: var(--cartao); color: var(--texto); }
-.formulario input:focus-visible { outline: 3px solid var(--dourado); outline-offset: 1px; }
-.formulario__aceite { grid-template-columns: auto 1fr; align-items: start; font-weight: 400 !important; }
-.formulario__aceite input { width: 20px; height: 20px; margin-top: 2px; }
-.formulario__robo { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-.formulario .botao { justify-self: start; cursor: pointer; font: inherit; font-weight: 600; }
-.formulario .botao:disabled { background: var(--aco); cursor: progress; }
-.formulario__situacao { margin: 0; padding: 12px 14px; border-left: 4px solid var(--hinomaru); background: var(--cartao); }
-.formulario__situacao--ok { border-left-color: var(--verde); }
 .aviso {background: rgba(201, 162, 39, 0.16); border-left: 4px solid var(--dourado); padding: 14px 16px; margin: 20px 0 28px; }
 
 @media (max-width: 900px) {
