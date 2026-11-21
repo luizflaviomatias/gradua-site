@@ -1,9 +1,16 @@
-# gradua-site
+# kimepro-site
 
-Landing page pública do **Gradua** — app para academias e escolas de lutas.
+Landing page pública do **KimePro** — app para academias e escolas de lutas.
 *Administre. Ensine. Evolua.*
 
-HTML e CSS estáticos, sem etapa de build, prontos para o GitHub Pages.
+HTML e CSS estáticos, sem etapa de build, prontos para o GitHub Pages:
+[luizflaviomatias.github.io/kimepro-site](https://luizflaviomatias.github.io/kimepro-site/), e depois no domínio
+próprio [kimepro.com.br](https://kimepro.com.br).
+
+*Kime* (極め / 決め) é o termo das artes marciais japonesas para o ponto máximo de foco, decisão e energia no
+instante exato da execução: gestão precisa, evolução do aluno acompanhada de perto e decisão certeira. *Pro*, do
+tatame ao financeiro. O site se chamava gradua-site até a F9; o guia de migração está no `MIGRACAO-KIMEPRO.md` do
+kimepro-app. O `logo.svg` sai de `apps/mobile/assets/marca/logo.svg` do app.
 
 | Arquivo | Conteúdo |
 | --- | --- |
@@ -18,13 +25,13 @@ HTML e CSS estáticos, sem etapa de build, prontos para o GitHub Pages.
 | `versao.json` | Versão publicada do app: liga os botões de `instalar.html` e avisa o app Android de versão nova |
 | `publicacao.js` | Lê o `versao.json` e libera os botões de instalação |
 | `piloto.js` / `config.js` | Formulário das academias piloto, enviado ao Supabase (`config.js` vazio = "em breve") |
-| `app/` | App web do iPhone, publicado pelo workflow *Publicar app web* do gradua-app |
+| `app/` | App web do iPhone, publicado pelo workflow *Publicar app web* do kimepro-app |
 
 ## Antes do lançamento
 
 - [ ] Revisar a política de privacidade e os termos com um advogado e incluir a empresa responsável, o CNPJ e o canal do encarregado de dados.
 - [ ] Publicar os preços dos planos.
 - [ ] Abrir o formulário de inscrição das academias piloto: preencher `config.js` com a URL e a chave publicável do Supabase.
-- [ ] Publicar a primeira versão: anexar `gradua.apk` a uma Release do gradua-site e trocar `"publicado"` para `true` no `versao.json`.
+- [ ] Publicar a primeira versão: anexar `kimepro.apk` a uma Release do kimepro-site e trocar `"publicado"` para `true` no `versao.json`.
 - [ ] Trocar as telas desenhadas em CSS por capturas reais do app.
 - [ ] Apontar o domínio próprio, quando registrado.
