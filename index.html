@@ -31,7 +31,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="tutoriais/tutorial.css">
   <script type="module" src="idioma.js"></script>
+  <script type="module" src="tutoriais/tutorial.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo" data-i18n="comum.pular">Pular para o conteúdo</a>
@@ -42,6 +44,7 @@
       <nav class="menu" aria-label="Seções" data-i18n-attr="aria-label:inicio.menu">
         <a href="#perfis" data-i18n="inicio.menu.perfis">Perfis</a>
         <a href="#recursos" data-i18n="inicio.menu.recursos">Recursos</a>
+        <a href="#tutorial" data-i18n="inicio.menu.tutorial">Tutorial</a>
         <a href="#planos" data-i18n="inicio.menu.planos">Planos</a>
         <a href="#perguntas" data-i18n="inicio.menu.perguntas">Perguntas</a>
         <a href="instalar.html" data-i18n="inicio.menu.instalar">Instalar</a>
@@ -178,6 +181,52 @@
             <h3 data-i18n="inicio.recurso.unidades">Várias unidades</h3>
             <p data-i18n="inicio.recurso.unidades.texto">Quem dá aula ou treina em mais de uma academia escolhe a academia ao entrar.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="tutorial" aria-labelledby="titulo-tutorial" data-tutorial>
+      <div class="conteiner">
+        <span class="rotulo" data-i18n="inicio.tutorial.rotulo">Tutorial</span>
+        <h2 id="titulo-tutorial" data-i18n="inicio.tutorial.titulo">Veja o KimePro funcionando</h2>
+        <p class="subtitulo" data-i18n="inicio.tutorial.subtitulo">Em pouco mais de um minuto: a entrada sem senha e as visões de aluno, professor e administrador.</p>
+        <div class="tutorial">
+          <figure class="tutorial__video">
+            <video controls preload="none" playsinline width="720" height="1558" poster="tutoriais/kimepro-tutorial-poster.jpg"
+              aria-labelledby="titulo-tutorial" aria-describedby="nota-tutorial">
+              <source src="tutoriais/kimepro-tutorial.webm" type='video/webm; codecs="vp9"'>
+              <source src="tutoriais/kimepro-tutorial.mp4" type="video/mp4">
+              <track kind="captions" src="tutoriais/kimepro-tutorial.vtt" srclang="pt-BR" label="Português (Brasil)" default>
+              <track kind="chapters" src="tutoriais/kimepro-tutorial-capitulos.vtt" srclang="pt-BR" label="Capítulos">
+              <a href="tutoriais/kimepro-tutorial.mp4" data-i18n="inicio.tutorial.baixar">Baixar o vídeo (MP4)</a>
+            </video>
+          </figure>
+          <div>
+            <h3 data-i18n="inicio.tutorial.capitulos">Capítulos</h3>
+            <ol class="tutorial__capitulos" lang="pt-BR">
+              <li><button type="button" data-tempo="4.6"><span class="tutorial__tempo">0:04</span> Entre sem senha</button></li>
+              <li><button type="button" data-tempo="18.0"><span class="tutorial__tempo">0:18</span> Escolha a academia</button></li>
+              <li><button type="button" data-tempo="23.5"><span class="tutorial__tempo">0:23</span> Evolua: a visão do aluno</button></li>
+              <li><button type="button" data-tempo="38.2"><span class="tutorial__tempo">0:38</span> Ensine: a visão do professor</button></li>
+              <li><button type="button" data-tempo="52.5"><span class="tutorial__tempo">0:52</span> Administre: a gestão da academia</button></li>
+            </ol>
+            <details class="tutorial__transcricao">
+              <summary data-i18n="inicio.tutorial.transcricao">Ler a transcrição</summary>
+              <div lang="pt-BR">
+                <h4>Entre sem senha</h4>
+                <p>Para entrar, digite seu e-mail e peça o código. Não tem senha para lembrar. O código chega no seu e-mail. Digite e toque em Entrar. No primeiro acesso, leia e aceite os Termos de Uso e a Política de Privacidade.</p>
+                <h4>Escolha a academia</h4>
+                <p>Treina em mais de uma academia? Escolha qual abrir. Cada uma mostra o seu papel nela.</p>
+                <h4>Evolua: a visão do aluno</h4>
+                <p>Na aba Evolua, o aluno acompanha a jornada: faixa atual e quanto falta para a próxima. Logo abaixo, as aulas da semana em cada modalidade. Em Minhas faturas: o que vence, o Pix copia e cola e a cópia para o ContaCerta.</p>
+                <h4>Ensine: a visão do professor</h4>
+                <p>Professor? Na aba Ensine, o app pede a trava do celular antes de abrir. Ali ficam as aulas para dar, quem está pronto para graduar e o registro da graduação. E os repasses: o extrato do mês, com o fixo e o valor por aula dada.</p>
+                <h4>Administre: a gestão da academia</h4>
+                <p>Na aba Administre fica a gestão: alunos ativos, professores e a cobrança do dia. Fatura vencida? Cobre pelo WhatsApp com um toque. Agenda das turmas, graduação, faturas, despesas, repasses e o fechamento do mês. E posts para o Instagram com a marca da academia, respeitando a autorização de imagem de cada aluno.</p>
+              </div>
+            </details>
+            <p class="tutorial__nota" id="nota-tutorial" data-i18n="inicio.tutorial.nota">Vídeo sem som, com legendas em português. Dados de demonstração.</p>
+          </div>
         </div>
       </div>
     </section>
