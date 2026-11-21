@@ -133,7 +133,20 @@ details p { color: var(--texto-2); margin-top: 10px; }
 .documento h1 { font-size: clamp(40px, 7vw, 64px); }
 .documento h2 { font-size: 32px; margin-top: 36px; }
 .documento li { margin-bottom: 6px; }
-.aviso { background: rgba(201, 162, 39, 0.16); border-left: 4px solid var(--dourado); padding: 14px 16px; margin: 20px 0 28px; }
+.documento section { padding-top: 8px; }
+.documento h3 { margin-top: 28px; }
+.documento code { font-size: 15px; background: var(--cartao); border: 1px solid var(--borda-clara); border-radius: 6px; padding: 1px 6px; }
+.botao[aria-disabled="true"] { background: var(--aco); cursor: not-allowed; opacity: 0.8; }
+.escolha { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 8px 0 24px; }
+.escolha-item { display: block; background: var(--cartao); border: 1px solid var(--borda-clara); border-top: 4px solid var(--hinomaru); border-radius: var(--raio); padding: 18px 20px; text-decoration: none; }
+.escolha-item:hover { border-color: var(--hinomaru); }
+.escolha-item strong { display: block; font-family: var(--titulo); font-size: 30px; font-weight: 400; letter-spacing: 0.5px; }
+.escolha-item span { color: var(--texto-2); font-size: 15px; }
+.passos { counter-reset: passo; list-style: none; padding: 0; margin: 20px 0 0; }
+.passos li { counter-increment: passo; position: relative; padding: 0 0 18px 52px; margin: 0; }
+.passos li::before { content: counter(passo); position: absolute; left: 0; top: -2px; width: 34px; height: 34px; border-radius: 50%; background: var(--hinomaru); color: var(--kimono); font-family: var(--titulo); font-size: 22px; display: grid; place-items: center; }
+.passos li strong { display: block; }
+.aviso {background: rgba(201, 162, 39, 0.16); border-left: 4px solid var(--dourado); padding: 14px 16px; margin: 20px 0 28px; }
 
 @media (max-width: 900px) {
   .heroi .conteiner { grid-template-columns: 1fr; }
@@ -147,4 +160,5 @@ details p { color: var(--texto-2); margin-top: 10px; }
   .celulares { flex-direction: column; align-items: center; }
   .celular.claro { transform: none; }
   .planos { grid-template-columns: 1fr; }
+  .escolha { grid-template-columns: 1fr; }
 }
