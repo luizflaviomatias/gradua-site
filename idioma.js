@@ -7,7 +7,7 @@ import { TEXTOS } from './textos.js';
 
 const PORTUGUES = 'pt-BR';
 const IDIOMAS = Object.freeze([PORTUGUES, 'es-ES', 'en-US']);
-const CHAVE_DA_PREFERENCIA = 'gradua:idioma';
+const CHAVE_DA_PREFERENCIA = 'kimepro:idioma';
 
 /** Nome de cada idioma escrito nele mesmo: é assim que a pessoa o reconhece. */
 const NOME_DO_IDIOMA = Object.freeze({ 'pt-BR': 'Português (Brasil)', 'es-ES': 'Español (España)', 'en-US': 'English (US)' });
@@ -22,8 +22,16 @@ const BANDEIRA = Object.freeze({
 
 const bandeira = (idioma) => `<svg class="bandeira" viewBox="0 0 30 20" aria-hidden="true" focusable="false">${BANDEIRA[idioma]}</svg>`;
 
+/** O site se chamava Gradua: a escolha salva com o nome antigo passa para o novo na primeira visita. */
+const CHAVE_DA_MARCA_ANTIGA = 'gradua:idioma';
+
 function lerPreferencia() {
   try {
+    const antiga = localStorage.getItem(CHAVE_DA_MARCA_ANTIGA);
+    if (antiga !== null) {
+      if (localStorage.getItem(CHAVE_DA_PREFERENCIA) === null) localStorage.setItem(CHAVE_DA_PREFERENCIA, antiga);
+      localStorage.removeItem(CHAVE_DA_MARCA_ANTIGA);
+    }
     return localStorage.getItem(CHAVE_DA_PREFERENCIA);
   } catch {
     return null;
