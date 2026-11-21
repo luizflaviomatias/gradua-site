@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Termos de uso — Gradua</title>
+  <title data-i18n="termos.tituloDaPagina">Termos de uso — Gradua</title>
   <meta name="description" content="Regras de uso do app Gradua para academias, professores e alunos.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
@@ -11,15 +11,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="idioma.js"></script>
 </head>
 <body>
   <header class="topo">
     <div class="conteiner">
       <a class="marca" href="index.html"><img src="logo.svg" alt="" width="36" height="36">GRADUA</a>
+      <div class="topo__acoes">
+        <div class="seletor-de-idioma" data-seletor-de-idioma></div>
+      </div>
     </div>
   </header>
 
   <main class="documento">
+    <div data-idioma-bloco="pt-BR">
     <h1>Termos de uso</h1>
     <p class="aviso"><strong>Versão preliminar.</strong> O Gradua está em desenvolvimento. Estes termos serão revisados e completados (com a identificação da empresa responsável, foro e canal de contato) antes do lançamento.</p>
 
@@ -51,14 +56,82 @@
 
     <h2>Privacidade</h2>
     <p>O tratamento de dados pessoais segue a <a href="privacidade.html">política de privacidade</a>.</p>
+    </div>
+    <div data-idioma-bloco="es-ES" hidden>
+    <h1>Términos de uso</h1>
+    <p class="aviso"><strong>Versión preliminar.</strong> Gradua está en desarrollo. Estos términos se revisarán y completarán (con la identificación de la empresa responsable, el fuero y el canal de contacto) antes del lanzamiento. Es una traducción: en caso de duda, prevalece la versión en portugués.</p>
+
+    <h2>El servicio</h2>
+    <p>Gradua ofrece agenda, check-in, seguimiento de la graduación, control de cuotas, pagos a profesores y publicación de fotos en Instagram para gimnasios y escuelas de artes marciales.</p>
+
+    <h2>Cuentas y perfiles</h2>
+    <ul>
+      <li>Cada persona usa su propia cuenta y responde de lo que hace con ella.</li>
+      <li>Los perfiles son alumno, profesor y administrador, definidos por gimnasio. Solo un administrador del gimnasio concede el perfil de administrador.</li>
+      <li>Las vistas de profesor y administrador exigen bloqueo de pantalla en el móvil (huella, cara, patrón, PIN o contraseña).</li>
+    </ul>
+
+    <h2>Responsabilidades del gimnasio</h2>
+    <ul>
+      <li>Registrar datos correctos y tener base legal para tratarlos.</li>
+      <li>Obtener la autorización de uso de imagen antes de publicar fotos, y la del tutor en el caso de menores.</li>
+      <li>Acordar con los alumnos los importes y vencimientos, y con los profesores las reglas de pago.</li>
+    </ul>
+
+    <h2>Pagos</h2>
+    <p>El alumno paga las cuotas directamente al gimnasio. Gradua no recibe ni guarda ese dinero. El gimnasio paga a Gradua una suscripción según su plan, definido por el número de alumnos activos. Por encima del límite del plan, el check-in y las clases siguen funcionando; tras el periodo de tolerancia, solo se bloquea el alta de alumnos nuevos hasta cambiar de plan.</p>
+
+    <h2>Uso prohibido</h2>
+    <p>No está permitido usar Gradua para enviar mensajes abusivos, registrar datos de terceros sin base legal, intentar acceder a datos de otro gimnasio o eludir las reglas de acceso.</p>
+
+    <h2>Cancelación</h2>
+    <p>El gimnasio puede cancelar la suscripción en cualquier momento. Cualquier persona puede eliminar su propia cuenta desde la app.</p>
+
+    <h2>Privacidad</h2>
+    <p>El tratamiento de datos personales sigue la <a href="privacidade.html">política de privacidad</a>.</p>
+    </div>
+
+    <div data-idioma-bloco="en-US" hidden>
+    <h1>Terms of use</h1>
+    <p class="aviso"><strong>Preliminary version.</strong> Gradua is in development. These terms will be reviewed and completed (with the responsible company’s details, jurisdiction and contact channel) before launch. This is a translation: if in doubt, the Portuguese version prevails.</p>
+
+    <h2>The service</h2>
+    <p>Gradua offers scheduling, check-in, promotion tracking, tuition tracking, instructor payouts and Instagram photo posting for martial arts gyms and schools.</p>
+
+    <h2>Accounts and roles</h2>
+    <ul>
+      <li>Everyone uses their own account and is responsible for what they do with it.</li>
+      <li>The roles are student, instructor and admin, set per gym. Only a gym admin can grant the admin role.</li>
+      <li>The instructor and admin views require a screen lock on the phone (fingerprint, face, pattern, PIN or password).</li>
+    </ul>
+
+    <h2>The gym’s responsibilities</h2>
+    <ul>
+      <li>Enter accurate data and have a legal basis to process it.</li>
+      <li>Get permission to use someone’s image before posting photos, and a parent or guardian’s permission for minors.</li>
+      <li>Agree on amounts and due dates with students, and on payout rules with instructors.</li>
+    </ul>
+
+    <h2>Payments</h2>
+    <p>Students pay tuition directly to the gym. Gradua neither receives nor holds that money. The gym pays Gradua a subscription based on its plan, which is set by the number of active students. Above the plan’s limit, check-in and classes keep working; after the grace period, only adding new students is blocked until the plan is changed.</p>
+
+    <h2>Prohibited use</h2>
+    <p>You may not use Gradua to send abusive messages, record third parties’ data without a legal basis, try to access another gym’s data or get around the access rules.</p>
+
+    <h2>Cancellation</h2>
+    <p>The gym can cancel its subscription at any time. Anyone can delete their own account inside the app.</p>
+
+    <h2>Privacy</h2>
+    <p>Personal data is processed according to the <a href="privacidade.html">privacy policy</a>.</p>
+    </div>
   </main>
 
   <footer class="rodape">
     <div class="conteiner">
-      <span>Gradua · Administre. Ensine. Evolua.</span>
-      <nav aria-label="Documentos">
-        <a href="index.html">Início</a>
-        <a href="privacidade.html">Política de privacidade</a>
+      <span data-i18n="comum.assinatura">Gradua · Administre. Ensine. Evolua.</span>
+      <nav aria-label="Documentos" data-i18n-attr="aria-label:comum.documentos">
+        <a href="index.html" data-i18n="comum.inicio">Início</a>
+        <a href="privacidade.html" data-i18n="comum.privacidade">Política de privacidade</a>
       </nav>
     </div>
   </footer>

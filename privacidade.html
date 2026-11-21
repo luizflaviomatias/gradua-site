@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de privacidade — Gradua</title>
+  <title data-i18n="privacidade.tituloDaPagina">Política de privacidade — Gradua</title>
   <meta name="description" content="Como o Gradua trata os dados pessoais de academias, professores e alunos.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="logo.svg" type="image/svg+xml">
@@ -11,15 +11,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="idioma.js"></script>
 </head>
 <body>
   <header class="topo">
     <div class="conteiner">
       <a class="marca" href="index.html"><img src="logo.svg" alt="" width="36" height="36">GRADUA</a>
+      <div class="topo__acoes">
+        <div class="seletor-de-idioma" data-seletor-de-idioma></div>
+      </div>
     </div>
   </header>
 
   <main class="documento">
+    <div data-idioma-bloco="pt-BR">
     <h1>Política de privacidade</h1>
     <p class="aviso"><strong>Versão preliminar.</strong> O Gradua está em desenvolvimento. Este texto será revisado e completado (com a identificação da empresa responsável e o canal de contato do encarregado) antes do lançamento.</p>
 
@@ -72,14 +77,124 @@
 
     <h2>Seus direitos</h2>
     <p>Você pode pedir confirmação, acesso, correção, portabilidade e exclusão dos seus dados, além de retirar consentimentos. A conta pode ser excluída dentro do próprio app. Pedidos sobre dados cadastrados por uma academia devem ser feitos primeiro a ela; o Gradua ajuda a academia a atendê-los.</p>
+    </div>
+    <div data-idioma-bloco="es-ES" hidden>
+    <h1>Política de privacidad</h1>
+    <p class="aviso"><strong>Versión preliminar.</strong> Gradua está en desarrollo. Este texto se revisará y completará (con la identificación de la empresa responsable y el canal de contacto del encargado de protección de datos) antes del lanzamiento. Es una traducción: en caso de duda, prevalece la versión en portugués.</p>
+
+    <p>Gradua es una app de gestión para gimnasios y escuelas de artes marciales. Esta política explica qué datos personales trata la app, para qué, con quién se comparten y cómo ejercer tus derechos, de acuerdo con la Ley General de Protección de Datos de Brasil (Ley 13.709/2018).</p>
+
+    <h2>Quién decide sobre los datos</h2>
+    <p>Cada gimnasio que usa Gradua es el <strong>responsable</strong> de los datos de sus alumnos y profesores: es quien decide qué registrar y cómo usarlo. Gradua actúa como <strong>encargado</strong>, tratando esos datos en nombre del gimnasio. Los datos del propio gimnasio (registro y suscripción) los trata Gradua como responsable.</p>
+
+    <h2>Qué datos</h2>
+    <ul>
+      <li><strong>Ficha del alumno:</strong> nombre, fecha de nacimiento, CPF (número de identificación fiscal brasileño), dirección, teléfono, cuenta de Instagram, fecha de alta, día de vencimiento de la cuota y, para menores, el nombre del tutor.</li>
+      <li><strong>Ficha del profesor:</strong> nombre, teléfono, clave Pix para los pagos y disciplinas que enseña.</li>
+      <li><strong>Uso de la app:</strong> check-ins, asistencias, clases dadas, graduaciones y solicitudes de cambio de perfil.</li>
+      <li><strong>Finanzas:</strong> facturas de los alumnos, pagos registrados y pagos a los profesores.</li>
+      <li><strong>Imagen:</strong> fotos de grupo, solo de quien ha autorizado el uso de su imagen.</li>
+      <li><strong>Gimnasio:</strong> nombre, CNPJ, dirección, clave Pix, logotipo y redes sociales.</li>
+    </ul>
+
+    <h2>Para qué</h2>
+    <ul>
+      <li>Organizar la agenda, el check-in, la asistencia y la graduación (ejecución del contrato entre alumno y gimnasio).</li>
+      <li>Controlar cuotas y pagos a profesores (ejecución de contrato y cumplimiento de obligaciones legales del gimnasio).</li>
+      <li>Publicar fotos del grupo en el Instagram del gimnasio (consentimiento, que se puede retirar en cualquier momento).</li>
+      <li>Mantener la app segura y auditar las acciones sensibles (interés legítimo).</li>
+    </ul>
+
+    <h2>Quién ve qué</h2>
+    <ul>
+      <li>El alumno solo ve sus propios datos, facturas y progreso.</li>
+      <li>El profesor ve sus grupos, la lista de asistencia y sus propios pagos. No ve las finanzas de los alumnos.</li>
+      <li>El administrador ve los datos de su gimnasio. Un gimnasio nunca ve datos de otro.</li>
+    </ul>
+
+    <h2>Comunicación de datos</h2>
+    <p>Gradua no vende datos. Solo se comparten con los proveedores necesarios para que el servicio funcione: alojamiento de la base de datos y de los archivos, envío de notificaciones, procesamiento de la suscripción del gimnasio (el cobro de Gradua a los gimnasios) y, cuando el gimnasio conecta su cuenta, Meta, para publicar en Instagram. El alumno paga las cuotas directamente al gimnasio, por su Pix.</p>
+
+    <h2>Seguridad</h2>
+    <ul>
+      <li>CPF guardado cifrado y mostrado enmascarado.</li>
+      <li>Reglas de acceso aplicadas en la propia base de datos, por gimnasio y por perfil.</li>
+      <li>Huella, cara o PIN del móvil obligatorios en las vistas de profesor y administrador.</li>
+      <li>Registro de las acciones sensibles: cobros, cierres de pagos, graduaciones y cambios de perfil.</li>
+    </ul>
+
+    <h2>Niños y adolescentes</h2>
+    <p>Los datos de menores se tratan en su mejor interés. El uso de la imagen de menores depende de la autorización del tutor.</p>
+
+    <h2>Durante cuánto tiempo</h2>
+    <p>Los datos se conservan mientras la persona tenga vínculo con el gimnasio y durante el tiempo que exija la ley para los registros financieros. Después, se eliminan o se anonimizan.</p>
+
+    <h2>Tus derechos</h2>
+    <p>Puedes solicitar la confirmación, el acceso, la rectificación, la portabilidad y la supresión de tus datos, además de retirar consentimientos. La cuenta se puede eliminar desde la propia app. Las solicitudes sobre datos registrados por un gimnasio deben dirigirse primero a él; Gradua ayuda al gimnasio a atenderlas.</p>
+    </div>
+
+    <div data-idioma-bloco="en-US" hidden>
+    <h1>Privacy policy</h1>
+    <p class="aviso"><strong>Preliminary version.</strong> Gradua is in development. This text will be reviewed and completed (with the responsible company’s details and the data protection officer’s contact channel) before launch. This is a translation: if in doubt, the Portuguese version prevails.</p>
+
+    <p>Gradua is a management app for martial arts gyms and schools. This policy explains which personal data the app processes, why, who it is shared with and how to exercise your rights, under Brazil’s General Data Protection Law (Law 13,709/2018).</p>
+
+    <h2>Who decides about the data</h2>
+    <p>Each gym that uses Gradua is the <strong>controller</strong> of its students’ and instructors’ data: it decides what to record and how to use it. Gradua acts as a <strong>processor</strong>, handling that data on the gym’s behalf. The gym’s own data (registration and subscription) is processed by Gradua as controller.</p>
+
+    <h2>What data</h2>
+    <ul>
+      <li><strong>Student record:</strong> name, date of birth, CPF (Brazilian taxpayer ID), address, phone, Instagram account, sign-up date, tuition due day and, for minors, the parent or guardian’s name.</li>
+      <li><strong>Instructor record:</strong> name, phone, Pix key for payouts and disciplines taught.</li>
+      <li><strong>App usage:</strong> check-ins, attendance, classes taught, promotions and role change requests.</li>
+      <li><strong>Finances:</strong> student invoices, recorded payments and instructor payouts.</li>
+      <li><strong>Image:</strong> class photos, only of people who allowed the use of their image.</li>
+      <li><strong>Gym:</strong> name, CNPJ (Brazilian company ID), address, Pix key, logo and social media.</li>
+    </ul>
+
+    <h2>What for</h2>
+    <ul>
+      <li>Organizing the schedule, check-in, attendance and promotions (performance of the contract between student and gym).</li>
+      <li>Tracking tuition and payouts (performance of contract and compliance with the gym’s legal obligations).</li>
+      <li>Posting class photos on the gym’s Instagram (consent, which can be withdrawn at any time).</li>
+      <li>Keeping the app secure and auditing sensitive actions (legitimate interest).</li>
+    </ul>
+
+    <h2>Who sees what</h2>
+    <ul>
+      <li>Students only see their own data, invoices and progress.</li>
+      <li>Instructors see their classes, the attendance list and their own payouts. They don’t see students’ finances.</li>
+      <li>Admins see their own gym’s data. One gym never sees another gym’s data.</li>
+    </ul>
+
+    <h2>Sharing</h2>
+    <p>Gradua doesn’t sell data. It is shared only with providers needed for the service to work: database and file hosting, notification delivery, processing of the gym’s subscription (Gradua’s billing of gyms) and, when the gym connects its account, Meta, to post on Instagram. Students pay tuition directly to the gym, using the gym’s Pix.</p>
+
+    <h2>Security</h2>
+    <ul>
+      <li>CPF stored encrypted and shown masked.</li>
+      <li>Access rules enforced in the database itself, by gym and by role.</li>
+      <li>Phone fingerprint, face or PIN required for the instructor and admin views.</li>
+      <li>Logging of sensitive actions: payments marked as received, payout closings, promotions and role changes.</li>
+    </ul>
+
+    <h2>Children and teenagers</h2>
+    <p>Minors’ data is processed in their best interest. Use of a minor’s image requires permission from a parent or guardian.</p>
+
+    <h2>How long</h2>
+    <p>Data is kept while the person is linked to the gym and for the time the law requires for financial records. After that, it is deleted or anonymized.</p>
+
+    <h2>Your rights</h2>
+    <p>You can request confirmation, access, correction, portability and deletion of your data, and withdraw consent. Your account can be deleted inside the app. Requests about data recorded by a gym should go to the gym first; Gradua helps the gym handle them.</p>
+    </div>
   </main>
 
   <footer class="rodape">
     <div class="conteiner">
-      <span>Gradua · Administre. Ensine. Evolua.</span>
-      <nav aria-label="Documentos">
-        <a href="index.html">Início</a>
-        <a href="termos.html">Termos de uso</a>
+      <span data-i18n="comum.assinatura">Gradua · Administre. Ensine. Evolua.</span>
+      <nav aria-label="Documentos" data-i18n-attr="aria-label:comum.documentos">
+        <a href="index.html" data-i18n="comum.inicio">Início</a>
+        <a href="termos.html" data-i18n="comum.termos">Termos de uso</a>
       </nav>
     </div>
   </footer>
