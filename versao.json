@@ -1,0 +1,7 @@
+{
+  "publicado": false,
+  "versao": "1.0.0",
+  "minima": "1.0.0",
+  "apk": "https://github.com/luizflaviomatias/gradua-site/releases/latest/download/gradua.apk",
+  "web": "app/"
+}
