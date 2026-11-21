@@ -14,7 +14,7 @@ kimepro-app. O `logo.svg` sai de `apps/mobile/assets/marca/logo.svg` do app.
 
 | Arquivo | Conteúdo |
 | --- | --- |
-| `index.html` | Página principal: perfis, recursos, modalidades, planos e perguntas |
+| `index.html` | Página principal: perfis, recursos, tutorial em vídeo, modalidades, planos e perguntas |
 | `privacidade.html` | Política de privacidade (versão preliminar) |
 | `termos.html` | Termos de uso (versão preliminar) |
 | `instalar.html` | Passo a passo de instalação no Android (APK do site) e no iPhone (app web na tela de início) |
@@ -22,6 +22,7 @@ kimepro-app. O `logo.svg` sai de `apps/mobile/assets/marca/logo.svg` do app.
 | `textos.js` | Textos em espanhol da Espanha e inglês dos EUA; o português fica no próprio HTML |
 | `estilo.css` | Identidade visual: carvão, hinomaru, dourado e kimono; Bebas Neue e Inter |
 | `logo.svg` | Marca e favicon |
+| `tutoriais/` | Vídeo tutorial (MP4, WebM, poster, legendas e capítulos), o estilo e o script da seção; `gravacao/` regrava o vídeo |
 | `versao.json` | Versão publicada do app: liga os botões de `instalar.html` e avisa o app Android de versão nova |
 | `publicacao.js` | Lê o `versao.json` e libera os botões de instalação |
 | `app/` | App web do iPhone, publicado pelo workflow *Publicar app web* do kimepro-app |
