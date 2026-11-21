@@ -1,21 +1,24 @@
 # Gravação do tutorial
 
 O vídeo da seção **Tutorial** (`../kimepro-tutorial.*`) sai destes scripts: o Playwright dirige o app web do KimePro
-em modo demonstração, numa tela de celular, e o screencast do navegador vira MP4 (H.264), WebM (VP9), poster e as
-legendas WebVTT (falas e capítulos). Não tem som: o texto está nas legendas.
+em modo demonstração, numa tela de celular, e o screencast do navegador vira MP4 (H.264 + AAC), WebM (VP9 + Opus),
+poster e as legendas WebVTT (falas e capítulos). Cada legenda é narrada por voz neural feminina
+(`pt-BR-FranciscaNeural`, via edge-tts), e a cena seguinte só começa quando a fala termina.
 
 | Arquivo | O que faz |
 | --- | --- |
-| `gravador.mjs` | Abre o navegador, captura a tela, mostra o toque, cartelas, legendas e capítulos; gera os arquivos com o ffmpeg |
-| `roteiro-kimepro.mjs` | O roteiro: entrada sem senha, Evolua, Ensine e Administre |
-| `gravar.mjs` | Roda um roteiro: `node gravar.mjs <roteiro> <pasta-de-saida>` |
-| `servidor-estatico.mjs` | Serve o app web exportado (com tipos de vídeo e de legenda) |
+| `gravador.mjs` | Abre o navegador, captura a tela, mostra o toque, cartelas, legendas, capítulos e o tempo das falas; gera os arquivos com o ffmpeg |
+| `narrador.mjs` | Transforma as falas do roteiro em áudio antes de gravar (com cache) e mede a duração de cada uma |
+| `roteiro-kimepro.mjs` | O roteiro: entrada sem senha, Evolua, Ensine e Administre; `PRONUNCIA` ajusta como a voz lê nomes |
+| `gravar.mjs` | Roda um roteiro: `node gravar.mjs <roteiro> <pasta-de-saida> [--sem-narracao]` |
+| `servidor-estatico.mjs` | Serve o app web exportado (com tipos de vídeo e de legenda e pedidos parciais) |
 | `montar-secao.mjs` | Gera o HTML dos capítulos e da transcrição a partir das legendas |
 
 ## Regravar
 
-Requisitos: Node, ffmpeg (`winget install Gyan.FFmpeg`), Microsoft Edge e o repositório `kimepro-app` ao lado
-(o `playwright-core` vem dele).
+Requisitos: Node, ffmpeg (`winget install Gyan.FFmpeg`), Microsoft Edge, Python com `edge-tts`
+(`python -m pip install --user edge-tts`) e o repositório `kimepro-app` ao lado (o `playwright-core` vem dele).
+O texto das falas vai para o serviço de voz da Microsoft: escreva no roteiro só texto do tutorial, nunca dados de alguém.
 
 ```bash
 # 1. App web em modo demonstração (sem Supabase: qualquer e-mail, código 123456)
@@ -31,4 +34,5 @@ FFMPEG=ffmpeg PLAYWRIGHT_CORE=../../../kimepro-app/node_modules/playwright-core/
 node montar-secao.mjs .. kimepro-tutorial
 ```
 
-Os horários dos capítulos (`data-tempo`) no `index.html` mudam a cada gravação: atualize-os com a saída do passo 3.
+O cache das falas fica em `../.narracao/`: apague-o antes do commit. Os horários dos capítulos (`data-tempo`) no
+`index.html` mudam a cada gravação: atualize-os com a saída do passo 3.

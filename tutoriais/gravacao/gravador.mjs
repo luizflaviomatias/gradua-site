@@ -62,9 +62,11 @@ class Trilha {
 
 /**
  * Uma gravação: o roteiro usa legenda(), capitulo(), cartela(), tocar(), digitar() e pausa(); no fim, salvar().
- * @param {{ tema: { fundo: string, texto: string, destaque: string } }} opcoes
+ * Com narrador, cada legenda também é falada e a próxima só começa quando a fala anterior termina.
+ * @param {{ tema: { fundo: string, texto: string, destaque: string },
+ *           narrador?: { obter: (fala: string) => { arquivo: string, duracao: number } } }} opcoes
  */
-export async function iniciarGravacao({ tema }) {
+export async function iniciarGravacao({ tema, narrador = null }) {
   const { chromium } = await import(pathToFileURL(CAMINHO_DO_PLAYWRIGHT).href);
   const navegador = await chromium.launch({ channel: CANAL });
   const contexto = await navegador.newContext({
@@ -79,21 +81,28 @@ export async function iniciarGravacao({ tema }) {
     serviceWorkers: 'block',
   });
   const pagina = await contexto.newPage();
-  return new Gravacao({ navegador, contexto, pagina, tema });
+  return new Gravacao({ navegador, contexto, pagina, tema, narrador });
 }
+
+/** Respiro entre uma fala e a seguinte, para a narração não emendar. */
+const PAUSA_ENTRE_FALAS_S = 0.35;
 
 class Gravacao {
   #quadros = [];
   #legendas = new Trilha();
   #capitulos = new Trilha();
+  #falas = [];
+  #fimDaFala = 0;
   #cdp = null;
   #tema;
+  #narrador;
 
-  constructor({ navegador, contexto, pagina, tema }) {
+  constructor({ navegador, contexto, pagina, tema, narrador }) {
     this.navegador = navegador;
     this.contexto = contexto;
     this.pagina = pagina;
     this.#tema = tema;
+    this.#narrador = narrador;
   }
 
   /** Começa a capturar a tela. Chame depois de abrir o app, para o vídeo não começar em branco. */
@@ -113,12 +122,25 @@ class Gravacao {
     await this.pausa(400);
   }
 
-  legenda(texto) {
-    this.#legendas.abrir(texto, segundosAgora());
+  /** Mostra a legenda e, com narrador, fala o texto; espera a fala anterior acabar antes de começar. */
+  async legenda(texto) {
+    await this.#esperarAFala();
+    const agora = segundosAgora();
+    this.#legendas.abrir(texto, agora);
+    if (!this.#narrador) return;
+    const { arquivo, duracao } = this.#narrador.obter(texto);
+    this.#falas.push({ instante: agora, arquivo });
+    this.#fimDaFala = agora + duracao + PAUSA_ENTRE_FALAS_S;
   }
 
-  semLegenda() {
+  async semLegenda() {
+    await this.#esperarAFala();
     this.#legendas.fechar(segundosAgora());
+  }
+
+  async #esperarAFala() {
+    const faltaEmSegundos = this.#fimDaFala - segundosAgora();
+    if (faltaEmSegundos > 0) await this.pausa(faltaEmSegundos * 1000);
   }
 
   capitulo(titulo) {
@@ -129,8 +151,11 @@ class Gravacao {
     return this.pagina.waitForTimeout(ms);
   }
 
-  /** Cartela de tela cheia por cima do app (abertura, capítulo ou fechamento). */
-  async cartela({ titulo, texto = '', ms = 2800 }) {
+  /**
+   * Cartela de tela cheia por cima do app (abertura, capítulo ou fechamento). Com `fala`, ela vira legenda e é
+   * narrada, e a cartela fica na tela até a fala terminar.
+   */
+  async cartela({ titulo, texto = '', ms = 2800, fala = '' }) {
     await this.pagina.evaluate(({ titulo, texto, tema }) => {
       const cartela = document.createElement('div');
       cartela.id = '__cartela-do-tutorial';
@@ -143,7 +168,9 @@ class Gravacao {
       document.body.appendChild(cartela);
       requestAnimationFrame(() => { cartela.style.opacity = '1'; });
     }, { titulo, texto, tema: this.#tema });
+    if (fala) await this.legenda(fala);
     await this.pausa(ms);
+    if (fala) await this.semLegenda();
     await this.pagina.evaluate(() => {
       const cartela = document.getElementById('__cartela-do-tutorial');
       cartela.style.opacity = '0';
@@ -213,11 +240,27 @@ class Gravacao {
     await this.pausa(380);
   }
 
+  /** Põe cada fala no instante em que a legenda dela abriu; sem narrador, só copia o vídeo. */
+  #juntarANarracao(video, saida, { audio, conteiner = [] }, origem) {
+    if (this.#falas.length === 0) {
+      rodarFfmpeg(['-i', video, '-c', 'copy', ...conteiner, saida]);
+      return;
+    }
+    const entradas = this.#falas.flatMap(({ arquivo }) => ['-i', arquivo]);
+    const atrasos = this.#falas.map(({ instante }, i) =>
+      `[${i + 1}:a]adelay=${Math.max(0, Math.round((instante - origem) * 1000))}:all=1[f${i}]`);
+    const rotulos = this.#falas.map((_, i) => `[f${i}]`).join('');
+    const mistura = `${rotulos}amix=inputs=${this.#falas.length}:normalize=0:dropout_transition=0,apad[narracao]`;
+    rodarFfmpeg(['-i', video, ...entradas, '-filter_complex', [...atrasos, mistura].join(';'),
+      '-map', '0:v', '-map', '[narracao]', '-c:v', 'copy', ...audio, ...conteiner, '-shortest', saida]);
+  }
+
   /**
    * Para a captura e grava <pasta>/<nome>.mp4, .webm, -poster.jpg, .vtt (legendas) e -capitulos.vtt.
    * @param {{ pasta: string, nome: string, posterNoSegundo: number }} destino
    */
   async salvar({ pasta, nome, posterNoSegundo }) {
+    await this.#esperarAFala();
     const fim = segundosAgora();
     this.#legendas.fechar(fim);
     this.#capitulos.fechar(fim);
@@ -245,10 +288,14 @@ class Gravacao {
       // Edge não decodificam o WebM e alguns players mostram cores lavadas no MP4.
       const filtro = ['-vf', `fps=${QUADROS_POR_SEGUNDO},scale=720:-2:flags=lanczos:in_range=pc:out_range=tv,format=yuv420p`,
         '-color_range', 'tv'];
+      const semAudio = join(temporaria, 'video');
       rodarFfmpeg([...entrada, ...filtro, '-c:v', 'libx264', '-preset', 'slow', '-crf', '27', '-tune', 'stillimage',
-        '-movflags', '+faststart', '-an', `${base}.mp4`]);
+        '-an', `${semAudio}.mp4`]);
       rodarFfmpeg([...entrada, ...filtro, '-c:v', 'libvpx-vp9', '-crf', '38', '-b:v', '0', '-row-mt', '1',
-        '-deadline', 'good', '-an', `${base}.webm`]);
+        '-deadline', 'good', '-an', `${semAudio}.webm`]);
+      this.#juntarANarracao(`${semAudio}.mp4`, `${base}.mp4`,
+        { audio: ['-c:a', 'aac', '-b:a', '64k'], conteiner: ['-movflags', '+faststart'] }, origem);
+      this.#juntarANarracao(`${semAudio}.webm`, `${base}.webm`, { audio: ['-c:a', 'libopus', '-b:a', '48k'] }, origem);
       rodarFfmpeg(['-ss', String(posterNoSegundo), '-i', `${base}.mp4`, '-frames:v', '1', '-q:v', '4', `${base}-poster.jpg`]);
     } finally {
       rmSync(temporaria, { recursive: true, force: true });
