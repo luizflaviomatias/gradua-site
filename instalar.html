@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
   <script type="module" src="idioma.js"></script>
+  <script type="module" src="publicacao.js"></script>
 </head>
 <body>
   <a class="pular" href="#conteudo" data-i18n="comum.pular">Pular para o conteúdo</a>
@@ -35,7 +36,7 @@
     <h1 data-i18n="instalar.titulo">Como instalar o Gradua</h1>
     <p class="subtitulo" data-i18n="instalar.subtitulo">O Gradua não fica na Play Store nem na App Store. No Android, você instala o app oficial baixado deste site. No iPhone, você abre o app pelo navegador e o coloca na tela de início, como qualquer outro app.</p>
 
-    <p class="aviso" data-i18n="instalar.emBreve"><strong>Em breve.</strong> O Gradua está em desenvolvimento. O arquivo para Android e o endereço do app para iPhone serão publicados nesta página quando as academias piloto começarem. Até lá, os botões abaixo ficam desativados.</p>
+    <p class="aviso" data-em-breve data-i18n="instalar.emBreve"><strong>Em breve.</strong> O Gradua está em desenvolvimento. O arquivo para Android e o endereço do app para iPhone serão publicados nesta página quando as academias piloto começarem. Até lá, os botões abaixo ficam desativados.</p>
 
     <nav class="escolha" aria-label="Escolha o seu celular" data-i18n-attr="aria-label:instalar.escolha">
       <a class="escolha-item" href="#android"><strong>Android</strong><span data-i18n="instalar.escolha.android">Samsung, Motorola, Xiaomi e outros · Android 7 ou mais recente</span></a>
@@ -45,7 +46,8 @@
     <section id="android">
       <h2>Android</h2>
       <p data-i18n="android.intro">Leva uns dois minutos. Faça pelo próprio celular, de preferência no Chrome.</p>
-      <p><a class="botao" aria-disabled="true" role="link" data-i18n="android.baixar">Baixar para Android · em breve</a></p>
+      <p data-em-breve><a class="botao" aria-disabled="true" role="link" data-i18n="android.baixar">Baixar para Android · em breve</a></p>
+      <p data-publicado hidden><a class="botao" data-link="apk" download data-i18n="android.baixarAgora">Baixar para Android</a></p>
       <ol class="passos">
         <li data-i18n="android.passo1"><strong>Baixe o arquivo.</strong> Toque em <em>Baixar para Android</em>. O arquivo se chama <code>gradua.apk</code>. Se o Chrome avisar que esse tipo de arquivo pode ser prejudicial, toque em <em>Baixar mesmo assim</em>.</li>
         <li data-i18n="android.passo2"><strong>Abra o arquivo.</strong> Toque na notificação de download concluído. Se ela sumiu, abra o app <em>Arquivos</em> (ou <em>Meus arquivos</em>) e entre em <em>Downloads</em>.</li>
@@ -63,7 +65,8 @@
     <section id="iphone">
       <h2>iPhone</h2>
       <p data-i18n="iphone.intro">No iPhone, o Gradua funciona como app web: não ocupa espaço de app, abre em tela cheia pelo ícone e se atualiza sozinho.</p>
-      <p><a class="botao" aria-disabled="true" role="link" data-i18n="iphone.abrir">Abrir o Gradua no iPhone · em breve</a></p>
+      <p data-em-breve><a class="botao" aria-disabled="true" role="link" data-i18n="iphone.abrir">Abrir o Gradua no iPhone · em breve</a></p>
+      <p data-publicado hidden><a class="botao" data-link="web" data-i18n="iphone.abrirAgora">Abrir o Gradua no iPhone</a></p>
       <ol class="passos">
         <li data-i18n="iphone.passo1"><strong>Abra o endereço do app no Safari.</strong> Toque em <em>Abrir o Gradua no iPhone</em>, ou digite o endereço que a sua academia enviou.</li>
         <li data-i18n="iphone.passo2"><strong>Toque em Compartilhar.</strong> É o ícone de um quadrado com uma seta para cima. No iOS 26, ele fica no menu <em>•••</em>, ao lado da barra de endereço.</li>

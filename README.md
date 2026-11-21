@@ -15,11 +15,16 @@ HTML e CSS estáticos, sem etapa de build, prontos para o GitHub Pages.
 | `textos.js` | Textos em espanhol da Espanha e inglês dos EUA; o português fica no próprio HTML |
 | `estilo.css` | Identidade visual: carvão, hinomaru, dourado e kimono; Bebas Neue e Inter |
 | `logo.svg` | Marca e favicon |
+| `versao.json` | Versão publicada do app: liga os botões de `instalar.html` e avisa o app Android de versão nova |
+| `publicacao.js` | Lê o `versao.json` e libera os botões de instalação |
+| `piloto.js` / `config.js` | Formulário das academias piloto, enviado ao Supabase (`config.js` vazio = "em breve") |
+| `app/` | App web do iPhone, publicado pelo workflow *Publicar app web* do gradua-app |
 
 ## Antes do lançamento
 
 - [ ] Revisar a política de privacidade e os termos com um advogado e incluir a empresa responsável, o CNPJ e o canal do encarregado de dados.
 - [ ] Publicar os preços dos planos.
-- [ ] Abrir o formulário de inscrição das academias piloto.
+- [ ] Abrir o formulário de inscrição das academias piloto: preencher `config.js` com a URL e a chave publicável do Supabase.
+- [ ] Publicar a primeira versão: anexar `gradua.apk` a uma Release do gradua-site e trocar `"publicado"` para `true` no `versao.json`.
 - [ ] Trocar as telas desenhadas em CSS por capturas reais do app.
 - [ ] Apontar o domínio próprio, quando registrado.
